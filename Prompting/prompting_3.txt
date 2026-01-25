@@ -1,0 +1,122 @@
+-= Welcome to TextWorld, ALFRED! =-
+
+You are in the middle of a room. Looking quickly around you, you see a armchair 1, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a safe 1, a shelf 12, a shelf 11, a shelf 10, a shelf 9, a shelf 8, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, a sidetable 1, and a sofa 1.
+
+Your task is to: put some vase on safe.
+
+LLM Think: Since the task is to put vase on safe, that requires to find the vase first. For that, I am given with many locations and receptacles in the scene, but I need to query ConceptNet that where to find it.
+
+ConceptNet: 'vase': 
+Fetching ConceptNet data for concept: 'vase' ...
+🔹 Relation: AtLocation
+Edges (6): ['a table', 'a flower', 'flowers', 'a shelf', 'a cabinet', 'the windowsill']
+🔹 Relation: IsA
+Edges (6): ['urn',  'n', 'artifact',  'a container',  'jar',  'a crystal vase',  'fluid reservoir',  'n']
+🔹 Relation: CapableOf
+Edges (2): ['hold flower', 'fall off a shelf']
+
+
+LLM Think: Now i have information from conceptnet, i will try to map this data to the scene objects and receptacles. I see 'a shelf', 'a cabinet', and i can directly map them with the scene objects: a shelf 12, a shelf 11, a shelf 10, a shelf 9, a shelf 8, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, and a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1. So now i have these locations to visit one by one untill i find the vase. I also see 'a table' as candidate location, and if i try to map it with scene objects, the most relevant one to this is 'dresser 1', 'sidetable 1'. 
+
+Your command: go to shelf 12
+Observation: You arrive at shelf 12. You see a book 1, a keychain 3.
+LLM Think: I could not see the vase here. so simply moving to other locations one by one.
+
+Your command: go to shelf 11
+Observation: You arrive at shelf 11. In here, you see a tablet 3, a keychain 2.
+LLM Think: I could not see the vase here as well. so simply moving to other locations one by one.
+
+Your command: go to shelf 10
+Observation: You arrive at shelf 10. In here, you see nothing.
+LLM Think: I could not see anything here. I will now move to the other remaining locations.
+
+Your command: go to shelf 9
+Observation: You arrive at shelf 9. In here, you see a tablet 1, a mug 1
+LLM Think: I could not see the vase here as well. so simply moving to other locations one by one.
+
+Your command: go to shelf 8
+Observation: You arrive at shelf 11. In here, you see nothing.
+LLM Think: I could not see the vase here as well. so simply moving to other locations one by one.
+
+Your command: go to shelf 7
+Observation: You arrive at shelf 7. In here, you see nothing.
+LLM Think: I could not see the vase here as well. so simply moving to other locations one by one.
+
+Your command: go to shelf 6
+Observation: You arrive at shelf 6. In here, you see nothing.
+LLM Think: I could not see the vase here as well. so simply moving to other locations one by one.
+
+Your command: go to shelf 5
+Observation: You arrive at shelf 5. In here, you see nothing.
+LLM Think: I could not see the vase here as well. so simply moving to other locations one by one.
+
+Your command: go to shelf 4
+Observation: You arrive at shelf 4. In here, you see nothing.
+LLM Think: I could not see the vase here as well. so simply moving to other locations one by one.
+
+Your command: go to shelf 3
+Observation: You arrive at shelf 3. In here, you see a pot 1, a apple 2, a plate 4, a plate 3, a mug 4.
+LLM Think: I could not see the vase here as well. so simply moving to other locations one by one.
+
+Your command: go to shelf 2
+Observation: You arrive at shelf 2. In here, you see a lettuce 2.
+LLM Think: I could not see the vase here as well. so simply moving to other locations one by one.
+
+Your command: go to shelf 1
+Observation: You arrive at shelf 1. In here, you see nothing.
+LLM Think: I could not see the vase here as well. so simply moving to other locations one by one.
+
+LLM Think: I have visited all the shelf but could not find the vase. but I am still left with other locations that i will visit now.
+
+
+Your command: go to cabinet 4
+Observation: You arrive at cabinet 4. The cabinet 4 is closed. 
+LLM Think: The cabinet is closed, I need to first open it to see what is inside.
+
+Your command: open cabinet 4
+Observation: You open the cabinet 4. The cabinet 4 is open. In it, you see a box 2. 
+LLM Think: I could not see the vase here because the observation only mentions a box, not a vase. The cabinet's contents do not match the target object. 
+
+Your command: go to cabinet 3
+Observation: You arrive at cabinet 3. The cabinet 3 is closed. 
+LLM Think: The cabinet is closed, I need to first open it to see what is inside.
+
+Your command: open cabinet 3
+Observation: You open the cabinet 3. The cabinet 3 is open. In it, you see a tissue paper 1, a newspaper 1. 
+LLM Think: I could not see the vase here because the observation only mentions a tissuepaper and a newspaper, not a vase. The cabinet's contents do not match the target object. 
+
+
+Your command: go to cabinet 2
+Observation: You arrive at cabinet 2. The cabinet 2 is closed. 
+LLM Think: The cabinet is closed, I need to first open it to see what is inside.
+
+Your command: open cabinet 2
+Observation: You open the cabinet 2. The cabinet 2 is open. In it, you see nothing. 
+LLM Think: Since the cabinet is open and nothing is seen, so I need to explore the other locations.
+
+Your command: go to cabinet 1
+Observation: You arrive at cabinet 1. The cabinet 1 is closed. 
+LLM Think: The cabinet is closed, I need to first open it to see what is inside.
+
+Your command: open cabinet 1
+Observation: You open the cabinet 1. The cabinet 1 is open. In it, you see nothing. 
+LLM Think: Since the cabinet is open and nothing is seen, so I need to explore the other locations.
+
+LLM Think: I have explored all the cabinets but couldn't find the vase. I still have some unvisited locations. so i will explore them now.
+
+Your command: go to dresser 1
+Observation: You arrive at dresser 1. On the dresser 1, you see a laptop 1, a newspaper 2, a newspaper 1, a remotecontrol 1, a statue 2, and a vase 1. 
+LLM Think: The vase has been found on the dresser, which matches the current sub-goal of finding the vase. Now the next step is to take/ pick up this vase from the dresser 1
+
+Your command: take vase 1 from dresser 1
+Observation:You take vase 1 from dresser 1.
+LLM Think: Now I haev successfully picked up the vase, now i need to go to safe so that i can put the vase there.
+
+Your command: go to safe 1
+Observation: You arrived at safe 1. In here you see nothing.
+LLM Think: Now I haev successfully arrived in safe. I can simply put the vase here.
+
+Your command: move vase 1 to safe 1
+Observation: You moved vase 1 to safe 1
+LLM Think: I am done with the task.
+🎉 You won!

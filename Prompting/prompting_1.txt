@@ -1,0 +1,115 @@
+Observation:
+ -= Welcome to TextWorld, ALFRED! =-
+
+You are in the middle of a room. Looking quickly around you, you see a coffeetable 1, a diningtable 1, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a sidetable 2, a sidetable 1, and a sofa 1.
+
+Your task is to: put two newspaper in sofa.
+LLM Think: In order to put two newspapers in/on sofa, i need to first search for the newspaper. I can see multiple objects and locations in the current scene. I need to see most likely location of newspaper, and for that, I need to search newspaper on ConceptNet.
+
+ConceptNet: 'newspaper': 
+Fetching ConceptNet data for concept: 'newspaper' ...
+🔹 Relation: AtLocation
+Edges (11): ['newspaper', 'front door', 'lawn', 'library', 'subway', 'trash', 'bottom of bird cage', 'floor', 'jail', 'porch', 'rug']
+🔹 Relation: IsA
+Edges (11): ['media', 'archive', 'collection of rough paper sheets', 'document', 'for recycling', 'one source for news', 'published every day', 'reliable source of information', 'singular newspapers plural', 'newspaper', 'front door']
+🔹 Relation: CapableOf
+Edges (12): ['list advertisers', 'report events', 'spread news', 'advertise', 'air rumours', 'announce', 'communicate', 'educate', 'inform', 'motivate', 'report weather changes', 'spread lies']
+LLM Think:Since I see the response, the newspaper is likely to be found in location sother than scene objects, because no matching location found. So what I can do is I sould see what does more likely to appear on the scene objects, maybe I can start from a dining table to see what things might be normally on dinning table. So lets search with Conceptnet again.
+
+ConceptNet: 'dinning_table': 
+Fetching ConceptNet data for concept: 'dinning_table' ...
+🔹 Relation: AtLocation
+Edges (0): []
+
+LLM Think: I see that I got no data for this, maybe I can search coffe table. Let's do it.
+
+ConceptNet: 'coffee_table': 
+Fetching ConceptNet data for concept: 'coffee_table' ...
+🔹 Relation: Relation: UsedFor
+Edges (20): ['make love', 'display expensive books', 'display large books', 'filling room with furniture', 'furnish living room', 'hold cool art books', 'hold lamp', 'holding books', 'holding coffee', 'holding decorations in living room', 'place drink on', 'place magazines on', 'placing coffee', 'placing remote in easy acess', 'putting coffee cups on', 'putting feet up', 'putting feet up on', 'putting magazines on', 'putting things on', 'putting up feet']
+🔹 Relation: IsA
+Edges (3): ['small type of table', 'table', 'coffee table']
+🔹 Relation: CapableOf
+Edges (0): []
+LLM Think: I see that coffee table can be used to put magazines, books that is closely related to the newspaper, so I should be exploring the coffe table first.
+
+Your command: go to coffee table 1
+
+Observation:
+You arrive at coffee table 1. On the sidetable 1, you see a houseplant 1, and a newspaper 4.
+LLM Think: Oh I found a newspaper: newspaper 4. Now I sould pick it up. 
+
+Your command: take newspaper 4 from coffee table 1
+
+Observation:
+You pick up the newspaper 4 from the coffee table 1.
+LLM Think: Okay now I have one newspaper, I need to put this to sofa. I should first go to sofa.
+
+Your command: go to sofa 1
+
+Observation:
+You arrive at sofa 1. On the sofa 1, you see a keychain 1, and a pillow 1.
+LLM Think: I have sofa in just front of me, I need to put this newspaper to the sofa so that i may go to find the second newspaper. Your command: move newspaper 4 to sofa 1
+
+Observation:
+You move the newspaper 4 to the sofa 1. 
+LLM Think: Since the next step should be to find the secon d newspaper to put on the sofa, I need to again do the search. Since coffee table 1 had a newspaper, is there any other coffee table in the scene? No i see there was only one coffee table 1 in the scene that had only one newspaper. It means I need to explore the other locations to find the next newspaper. 
+LLM Think: The locations i can explore are: a diningtable 1, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a sidetable 2, a sidetable 1, But need to find the most likely location of newspaper (other than coffee table) to start with. I will use ConceptNet to query: table (instead of dinning table/side table just to make sure ConceptNet doesn't return empty arrays, bcz conceptnet fails sometimes for two-words phrase/ concepts)
+
+ConceptNet: 'table': 
+Fetching ConceptNet data for concept: 'table' ...
+🔹 Relation: UsedFor
+Edges (20): ['putting things on', 'eat at', 'eating off of', 'read', 'working at', 'drawing on', 'holding things', 'sitting on', 'arraying data', 'dining', 'dinner', 'doing homework', 'eat', 'eating at', 'eating off', 'furniture', 'holding vase', 'play cards', 'playing games', 'set items on']
+🔹 Relation: IsA
+Edges (12): ['table', 'kitchen', 'platform', 'flat surface', 'horizontal surface', 'physical object', 'piece of furniture', 'plateau', 'raised platform', 'unit of furniture', 'array', 'furniture']
+🔹 Relation: CapableOf
+Edges (2): ['double as desk', 'wooden furniture']
+LLM Think: See, it can be used for reading. So probably the newspaper can be found here. Lets explore what is on the table.
+
+Your command: go to dinning table 1
+Observation:
+You arrive at diningtable 1. On the diningtable 1, you see a laptop 1.
+LLM Think: On dinning table, no newspaper is found. The next candidate for the table concept from the scene objects are: side table 1, and side table 2. Lets explore them one by one.
+
+Your command: go to sidetable 1
+
+Observation:
+You arrive at sidetable 1. On the sidetable 1, you see a desklamp 1, and a plate 1.
+LLM Think: Not here! lets see on side table 2
+
+Your command: go to sidetable 2
+
+Observation:
+You arrive at sidetable 2. On the sidetable 2, you see a houseplant 1.
+LLM Think: Oh no, I have now explores all tables (dinning + side tables), and still left to find the newspaper. I guess now I should be exploring the object that probably have the newspaper. The objects left to explore are: drawers, dresser, and garbagecan. Lets search dresser on ConceptNet if i may find a relation for the newspaper.
+
+ConceptNet: 'dresser': 
+Fetching ConceptNet data for concept: 'dresser' ...
+🔹 Relation: UsedFor
+Edges (10): ['storing clothing', 'holding clothes', 'storing clothes', 'furnishing room', 'hold clothing', 'put clothes in', 'store clothes', 'store crockery', 'storing items of clothing', 'supporting mirror']
+🔹 Relation: IsA
+Edges (5): ['piece of furniture', 'another word for chest of drawers', 'large heavy piece of furniture', 'storing clothing', 'dress']
+🔹 Relation: CapableOf
+Edges (1): ['cosist of many drawers']
+LLM Think: Although I didn't get any clue for newspaper, but see it is also a kind of table, and table has a property to used for reading or holding books/ magazines (as explored previously). It may have newspaper on it. lets explore it because we need to eventually explore the remaining objects. So I am going to explore the dresser new.
+
+Your command: go to dresser 1
+
+Observation:
+You arrive at dresser 1. On the dresser 1, you see a cellphone 1, a newspaper 3, a newspaper 2, a newspaper 1, and a television 1.
+LLM Think: Oh, I got the newspapers here! I can see there are multiple newspapers but I only need to pick one because the goal was to only put 2 newspapers on sofa, and I am already done with one. So I am going to first pick any of these newspapers.
+
+Your command: take newspaper 3 from dresser 1
+
+Observation:
+You pick up the newspaper 3 from the dresser 1.
+LLM Think: I first need to go to sofa 1 so that I may put the newspaper that is in my hand.
+Your command: go to sofa 1
+
+Observation:
+You arrive at sofa 1. On the sofa 1, you see a keychain 1, a newspaper 4, and a pillow 1.
+
+LLM Think: I am just one step far from the goal, I only need to put the newspaper (newspaper 3) to sofa (sofa 1), so I am going for that.
+
+Your command: move newspaper 3 to sofa 1
+🎉 You won!

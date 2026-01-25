@@ -1,0 +1,70 @@
+-= Welcome to TextWorld, ALFRED! =-
+
+You are in the middle of a room. Looking quickly around you, you see a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 1, a diningtable 1, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.
+
+Your task is to: put a clean knife in diningtable.
+
+LLM Think: In order to put a clean knife in dinningtable, i need to first search for the knife, then clean it then putting it. I can see multiple objects and locations in the current scene. I need to see most likely location of knife, and for that, I need to search knife on ConceptNet.
+
+ConceptNet: 'knife': 
+Fetching ConceptNet data for concept: 'knife' ...
+🔹 Relation: AtLocation
+Edges (18): ['a kitchen', 'a drawer', 'a kitchen drawer','pocket',  'back',  'backpack',  'drawer in kitchen', 'ex husbands back',  'fishing boat','knife block',  'knife holder',  'knife store',  'plate',  'sheath',  'silverware drawer', 'stabbing victim', 'table',  'war]
+🔹 Relation: IsA
+Edges (3): ['knife', 'tool', 'speciality of thiers in france']
+🔹 Relation: CapableOf
+Edges (19): ['spread butter',  'spread peanut butter',  'butter bread',  'cut',  'cut apple',  'hurt dog',  'hurt',  'butter bred',  'butter piece of toast',  'cut cake',  'cut cheese',  'cut leather',  'cut most things',  'cut tomatoe',  'cut vegetables or fingers',  'cutting food',  'divide bread',  'divide cake',  'divide pie']
+
+LLM Think: Okay, I have retrieved data from conceptnet, and since i am finding an object, it means the most relevant relation will be 'AtLocation', so I will now try to map the data from this relation with scene objects, since i am not allowed to do the partial matching or to suggest any other object by myself, i need to strict myself with these. By looking at this, I can see drawer, and table are present in current scene as: drawer 2, drawer 1, diningtable 1. So i would suggest to first explore these locations one by one, and will then see what happens.
+
+Your command: go to drawer 2
+Observation: You arrive at drawer 2. drawer 2 is closed.
+LLM Think: Oh I see this is closed, in order to see what's inside, i need to first open it.
+
+Your command: open drawer 2
+Observation: You open drawer 2. In it you see butterknife 2, butterknife 1, bread 1, towel 2.
+LLM Think: Although i can see some butterknives here, but these are not the the exact target objects, so i need to explore the other locations now.
+
+Your command: go to drawer 1
+Observation: You arrive at drawer 1. drawer 1 is closed.
+LLM Think: Oh this is closed, in order to see what's inside, i need to first open it.
+
+Your command: open drawer 1
+Observation: You open drawer 1. In it you see spetula 1, spraybottle 2, plate 2, plate 1.
+LLM Think: In here, I couldn't see the target object knife, so i need to explore the other locations now.
+
+Your command: go to diningtable 1
+Observation: You arrive at diningtable 1. You see a plate 2, plate 1, knife 1, knife 2, apple 1.
+LLM Think: Oh I got the two knife here, I can take any, so lets take knife 1. And the current subgoal of finding the knife is achieved. Now i need to take the knife so that i may clean it.
+
+Your command: take knife 1 from diningtable 1
+Observation: You take knife 1 from diningtable 1
+LLM Think: I got the knife with me, now i need to clean it. For that, i dont know what scene receptacles will be used to clean this. So i need to query ConceptNet for the knowledge.
+
+ConceptNet: 'clean': 
+Fetching ConceptNet data for concept: '' ...
+🔹 Relation: IsA
+Edges (0): ['cleaning tool', 'n', 'semiconductor processing tool chamber', 'scrubber', 'dry clean', 'tangible thing', 'sink', 'programming language']
+🔹 Relation: CapableOf
+['hand sanitizer']
+🔹 Relation: UsedFor
+['cloth', 'a soap', 'a vent brush', 'soaps'],
+🔹 Relation: HasProperty: ['a glass', 'you hope it', 'not all appartments', 'carpets that have been vacuumed',   'the chalk board', 'if you wash your hands they',  'a hospital', 'first class seating areas'],
+LLM Think: I have retrieved these relations, and by looking at the data edges, I will try to map this with the scene objects. I see a data edge 'sink', and if i try to map it with scene objects, I can see we have a receptacle: sinkbasin 1, and these two are similar,also, there is no other receptacle in the scene that could be used for cleaning, so i am going with this. So now i first need to goto sinkbasin so that i can clean with it.
+
+Your command: go to sinkbasin 1
+Observation: You arrive at sinkbasin 1. In it you see a dishsponge.
+LLM Think: I have now arrived at sinkbasin 1. I can directly clean the object with it (without needing to use any additional objects e.g. dishsponge etc.). so i am going with simple clean command.
+
+Your command: clean knife 1 with sinkbasin 1
+Observation: You clean knife 1 with sinkbasin 1
+LLM Think: Oh yess, I am done with cleaning. Now the next goal is simply to put this clean knife to diningtable. I need to first go there.
+
+Your command: go to diningtable 1
+Observation: You arrive at diningtable 1. You see a plate 2, plate 1, knife 2, apple 1.
+LLM Think: I am now facing the diningtable 1. I can simply put the knife here.
+
+Your command: move knife 1 to diningtable 1
+Observation: You move knife 1 to diningtable 1
+LLM Think: I am done with the task.
+🎉 You won!

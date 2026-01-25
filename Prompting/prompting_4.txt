@@ -1,0 +1,102 @@
+-= Welcome to TextWorld, ALFRED! =-
+
+You are in the middle of a room. Looking quickly around you, you see a countertop 1, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, handtowelholder 1, a garbagecan 1, a sinkbasin 2, a toilet 1, a toiletpaperhanger 1, and a towelhoder 1.
+
+Your task is to: put a toiletpaper in toiletpaperhanger.
+
+LLM Think: In order to put a toiletpaper in toiletpaperhanger
+, i need to first search for the toiletpaper, then putting it to toiletpaperhanger. I can see multiple objects and locations in the current scene. I need to see most likely location of toiletpaper, and for that, I need to search toiletpaper on ConceptNet.
+
+ConceptNet: 'toiletpaper': 
+Fetching ConceptNet data for concept: 'toiletpaper' ...
+🔹 Relation: AtLocation
+Edges (4): ['a desk', 'a drawer', 'cabinet', 'inside a washroom']
+🔹 Relation: IsA
+Edges (2): ['paper used in toilet', 'disposable paper']
+🔹 Relation: CapableOf
+Edges (5): ['wipe', 'dry', 'clean', 'cone outside from the box', 'getting disposed']
+
+LLM Think: Okay, I have retrieved data from conceptnet, and since i am finding an object, it means the most relevant relation will be 'AtLocation', so I will now try to map the data from this relation with scene objects, since i am not allowed to do the partial matching or to suggest any other object by myself, i need to strict myself with these. By looking at this, I can see drawer, and cabinets are present in current scene as: a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, and countertop 1. So i would suggest to first explore these locations one by one, and will then see what happens.
+
+Your command: go to drawer 8
+Observation: You arrive at drawer 8. drawer 8 is closed.
+LLM Think: Oh I see this is closed, in order to see what's inside, i need to first open it.
+
+Your command: open drawer 8
+Observation: You open drawer 8. drawer 8 is now open. In it you see a bath tub 1, a brush 1.
+LLM Think: I can not see the toiletpaper here. So i am moving to explore the other locations.
+
+Your command: go to drawer 7
+Observation: You arrive at drawer 7. drawer 7 is closed.
+LLM Think: Oh I see this is closed, in order to see what's inside, i need to first open it.
+
+Your command: open drawer 7
+Observation: You open drawer 7. drawer 7 is now open. In it you nothing.
+LLM Think: I can not see the toiletpaper here. So i am moving to explore the other locations.
+
+Your command: go to drawer 6
+Observation: You arrive at drawer 6. drawer 6 is closed.
+LLM Think: Oh I see this is closed, in order to see what's inside, i need to first open it.
+
+Your command: open drawer 6
+Observation: You open drawer 6. drawer 6 is now open. In it you see a box 1.
+LLM Think: I can not see the toiletpaper here. So i am moving to explore the other locations.
+
+Your command: go to drawer 5
+Observation: You arrive at drawer 5. drawer 5 is closed.
+LLM Think: Oh I see this is closed, in order to see what's inside, i need to first open it.
+
+Your command: open drawer 5
+Observation: You open drawer 5. drawer 5 is now open. In it you see a box 1.
+LLM Think: I can not see the toiletpaper here. So i am moving to explore the other locations.
+
+Your command: go to drawer 4
+Observation: You arrive at drawer 6. drawer 6 is closed.
+LLM Think: Oh I see this is closed, in order to see what's inside, i need to first open it.
+
+Your command: open drawer 4
+Observation: You open drawer 4. drawer 4 is now open. In it you see nothing.
+LLM Think: I can not see the toiletpaper here. So i am moving to explore the other locations.
+
+Your command: go to drawer 3
+Observation: You arrive at drawer 3. drawer 3 is closed.
+LLM Think: Oh I see this is closed, in order to see what's inside, i need to first open it.
+
+Your command: open drawer 3
+Observation: You open drawer 3. drawer 3 is now open. In it you see a toothpaste 1.
+LLM Think: I can not see the toiletpaper here. So i am moving to explore the other locations.
+
+Your command: go to drawer 2
+Observation: You arrive at drawer 2. drawer 2 is closed.
+LLM Think: Oh I see this is closed, in order to see what's inside, i need to first open it.
+
+Your command: open drawer 2
+Observation: You open drawer 2. drawer 2 is now open. In it you see a shampoo 1, a spraybottle 1, spraybottle 2, spraybottle 3.
+LLM Think: I can not see the toiletpaper here. So i am moving to explore the other locations.
+
+Your command: go to drawer 1
+Observation: You arrive at drawer 1. drawer 1 is closed.
+LLM Think: Oh I see this is closed, in order to see what's inside, i need to first open it.
+
+Your command: open drawer 1
+Observation: You open drawer 1. drawer 1 is now open. In it you see nothing.
+LLM Think: I can not see the toiletpaper here. So i am moving to explore the other locations.
+
+LLM Think: I have explored all the drawers but couldn't find the toiletpaper. Now I am still left with unvisited locations. I will explore them now.
+
+Your command: go to countertop 1
+Observation: You arrive at countertop 1. On countertop 1, you see a soapbar 1, a spraybottle 3, a spraybottle 1, a toiletpaper 3, and a toiletpaper 1.
+LLM Think: Oh I found the toiletpaper. I can see there are two toiletpapers: a toiletpaper 3, and a toiletpaper 1. I need only one, so i can take any of these as next step, I am going for toiletpaper 1. Now i need to take/ pick up toiletpaper 1 from countertop 1.
+
+Your command: take toiletpaper 1 from countertop 1
+Observation: You pick up the toiletpaper 1 from countertop 1
+LLM Think: I have now picket up the toiletpaper. Now I need to first go to toiletpaperhanger, so that i can put this over there.
+
+Your command: go to toiletpaperhanger 1
+Observation: You arrive at toiletpaperhanger 1. On the toiletpaperhanger 1, yo usee nothing.
+LLM Think: I have now arrived at toiletpaperhanger 1 that is currently empty, it means i can directly put the toiletpaper 1 on toiletpaperhanger 1.
+
+Your command: move toiletpaper 1 to toiletpaperhanger 1
+Observation: You move toiletpaper 1 to tooiletpaperhanger 1
+LLM Think: I am done with the task.
+🎉 You won!
